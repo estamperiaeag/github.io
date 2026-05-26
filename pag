@@ -1,0 +1,1649 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Estampería E.A.G — Servicio Textil Premium</title>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700;800;900&family=Barlow:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --black: #0a0a0a;
+    --white: #f5f5f5;
+    --accent: #e8ff00;
+    --accent2: #ff3c00;
+    --gray: #1a1a1a;
+    --gray2: #2a2a2a;
+    --gray3: #444;
+    --text-muted: #888;
+    --font-head: 'Barlow Condensed', sans-serif;
+    --font-body: 'Barlow', sans-serif;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--black);
+    color: var(--white);
+    font-family: var(--font-body);
+    font-size: 16px;
+    line-height: 1.6;
+    overflow-x: hidden;
+  }
+
+  /* NAV */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem 2rem;
+    background: rgba(10,10,10,0.92);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(255,255,255,0.06);
+    transition: all 0.3s;
+  }
+
+  .nav-logo {
+    display: flex;
+    flex-direction: column;
+    line-height: 1;
+    text-decoration: none;
+    gap: 2px;
+  }
+  .nav-logo-main {
+    font-family: var(--font-head);
+    font-size: 1.65rem;
+    font-weight: 900;
+    text-transform: uppercase;
+    letter-spacing: -0.01em;
+    color: var(--white);
+  }
+  .nav-logo-main .eag { color: var(--accent); }
+  .nav-logo-sub {
+    font-family: var(--font-head);
+    font-size: 0.58rem;
+    font-weight: 600;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+  }
+
+  .nav-links {
+    display: flex;
+    gap: 2rem;
+    list-style: none;
+  }
+
+  .nav-links a {
+    color: var(--text-muted);
+    text-decoration: none;
+    font-family: var(--font-head);
+    font-size: 1rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    transition: color 0.2s;
+  }
+
+  .nav-links a:hover { color: var(--accent); }
+
+  .nav-cta {
+    background: var(--accent);
+    color: var(--black) !important;
+    padding: 0.5rem 1.25rem;
+    font-weight: 800 !important;
+    letter-spacing: 0.1em;
+    clip-path: polygon(6px 0%, 100% 0%, calc(100% - 6px) 100%, 0% 100%);
+    transition: background 0.2s, transform 0.2s !important;
+  }
+
+  .nav-cta:hover { background: #fff !important; transform: scale(1.04); }
+
+  .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; }
+  .hamburger span { width: 24px; height: 2px; background: var(--white); transition: all 0.3s; }
+
+  /* HERO */
+  .hero {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    padding: 8rem 2rem 4rem;
+  }
+
+  .hero-bg {
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(ellipse at 20% 50%, rgba(232,255,0,0.06) 0%, transparent 60%),
+      radial-gradient(ellipse at 80% 20%, rgba(255,60,0,0.05) 0%, transparent 50%),
+      repeating-linear-gradient(
+        0deg,
+        transparent,
+        transparent 40px,
+        rgba(255,255,255,0.015) 40px,
+        rgba(255,255,255,0.015) 41px
+      ),
+      repeating-linear-gradient(
+        90deg,
+        transparent,
+        transparent 40px,
+        rgba(255,255,255,0.015) 40px,
+        rgba(255,255,255,0.015) 41px
+      );
+  }
+
+  .hero-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: rgba(232,255,0,0.1);
+    border: 1px solid rgba(232,255,0,0.3);
+    color: var(--accent);
+    font-family: var(--font-head);
+    font-size: 0.85rem;
+    font-weight: 700;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    padding: 0.4rem 1rem;
+    margin-bottom: 1.5rem;
+    animation: fadeUp 0.6s ease both;
+  }
+
+  .hero-badge::before {
+    content: '';
+    width: 6px; height: 6px;
+    background: var(--accent);
+    border-radius: 50%;
+    animation: pulse 2s infinite;
+  }
+
+  @keyframes pulse {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.5; transform: scale(1.4); }
+  }
+
+  .hero h1 {
+    font-family: var(--font-head);
+    font-size: clamp(3.5rem, 10vw, 9rem);
+    font-weight: 900;
+    line-height: 0.9;
+    text-transform: uppercase;
+    letter-spacing: -0.02em;
+    animation: fadeUp 0.6s 0.1s ease both;
+    margin-bottom: 0.5rem;
+  }
+
+  .hero h1 .accent-line {
+    color: var(--accent);
+    display: block;
+    -webkit-text-stroke: 0px;
+  }
+
+  .hero h1 .outline-line {
+    -webkit-text-stroke: 2px var(--white);
+    color: transparent;
+    display: block;
+  }
+
+  .hero-sub {
+    font-family: var(--font-head);
+    font-size: clamp(1.1rem, 2.5vw, 1.5rem);
+    font-weight: 400;
+    color: var(--text-muted);
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    margin: 1.5rem 0 2.5rem;
+    animation: fadeUp 0.6s 0.2s ease both;
+  }
+
+  .hero-sub span { color: var(--white); }
+
+  .hero-ctas {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+    justify-content: center;
+    animation: fadeUp 0.6s 0.3s ease both;
+    margin-bottom: 3rem;
+  }
+
+  .btn-primary {
+    background: var(--accent);
+    color: var(--black);
+    font-family: var(--font-head);
+    font-size: 1.05rem;
+    font-weight: 800;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    padding: 0.9rem 2.5rem;
+    text-decoration: none;
+    clip-path: polygon(10px 0%, 100% 0%, calc(100% - 10px) 100%, 0% 100%);
+    transition: all 0.2s;
+    border: none;
+    cursor: pointer;
+    display: inline-block;
+  }
+
+  .btn-primary:hover { background: #fff; transform: translateY(-2px); }
+
+  .btn-secondary {
+    background: transparent;
+    color: var(--white);
+    font-family: var(--font-head);
+    font-size: 1.05rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    padding: 0.85rem 2.5rem;
+    text-decoration: none;
+    border: 2px solid rgba(255,255,255,0.25);
+    transition: all 0.2s;
+    display: inline-block;
+    cursor: pointer;
+  }
+
+  .btn-secondary:hover { border-color: var(--accent); color: var(--accent); }
+
+  .hero-stats {
+    display: flex;
+    gap: 3rem;
+    justify-content: center;
+    flex-wrap: wrap;
+    animation: fadeUp 0.6s 0.4s ease both;
+    border-top: 1px solid rgba(255,255,255,0.08);
+    padding-top: 2rem;
+    width: 100%;
+    max-width: 700px;
+  }
+
+  .hero-stat { text-align: center; }
+
+  .hero-stat .num {
+    font-family: var(--font-head);
+    font-size: 2.5rem;
+    font-weight: 900;
+    color: var(--accent);
+    line-height: 1;
+  }
+
+  .hero-stat .label {
+    font-size: 0.75rem;
+    font-weight: 500;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    margin-top: 0.25rem;
+  }
+
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(24px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  /* SECTION BASE */
+  section { padding: 5rem 2rem; }
+
+  .container { max-width: 1100px; margin: 0 auto; }
+
+  .section-tag {
+    font-family: var(--font-head);
+    font-size: 0.8rem;
+    font-weight: 700;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 0.75rem;
+  }
+
+  .section-title {
+    font-family: var(--font-head);
+    font-size: clamp(2.2rem, 5vw, 3.8rem);
+    font-weight: 900;
+    text-transform: uppercase;
+    line-height: 0.95;
+    margin-bottom: 1.5rem;
+    letter-spacing: -0.01em;
+  }
+
+  .section-title .dim { color: var(--text-muted); }
+
+  /* SERVICIOS */
+  #servicios { background: var(--gray); }
+
+  .servicios-intro {
+    max-width: 600px;
+    margin-bottom: 3rem;
+  }
+
+  .servicios-intro p {
+    color: var(--text-muted);
+    font-size: 1.05rem;
+  }
+
+  .servicios-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5px;
+    background: rgba(255,255,255,0.06);
+  }
+
+  .servicio-card {
+    background: var(--gray);
+    padding: 2.5rem;
+    position: relative;
+    overflow: hidden;
+    transition: background 0.3s;
+    cursor: default;
+  }
+
+  .servicio-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0;
+    width: 3px; height: 0;
+    background: var(--accent);
+    transition: height 0.4s ease;
+  }
+
+  .servicio-card:hover { background: #1f1f1f; }
+  .servicio-card:hover::before { height: 100%; }
+
+  .serv-num {
+    font-family: var(--font-head);
+    font-size: 4rem;
+    font-weight: 900;
+    color: rgba(255,255,255,0.06);
+    line-height: 1;
+    margin-bottom: 1rem;
+    transition: color 0.3s;
+  }
+
+  .servicio-card:hover .serv-num { color: rgba(232,255,0,0.12); }
+
+  .serv-icon {
+    margin-bottom: 1rem;
+    color: var(--accent);
+    transition: color 0.3s;
+  }
+
+  .serv-icon svg {
+    display: block;
+    stroke: var(--accent);
+    transition: stroke 0.3s;
+  }
+
+  .servicio-card:hover .serv-icon svg { stroke: var(--white); }
+
+  .serv-title {
+    font-family: var(--font-head);
+    font-size: 1.6rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-bottom: 0.75rem;
+  }
+
+  .serv-desc {
+    color: var(--text-muted);
+    font-size: 0.95rem;
+    line-height: 1.7;
+    margin-bottom: 1.5rem;
+  }
+
+  .serv-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+  }
+
+  .tag {
+    font-family: var(--font-head);
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    padding: 0.25rem 0.6rem;
+    border: 1px solid rgba(255,255,255,0.12);
+    color: var(--text-muted);
+  }
+
+  /* PROCESO */
+  #proceso { background: var(--black); }
+
+  .proceso-steps {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 0;
+    margin-top: 3rem;
+    position: relative;
+  }
+
+  .proceso-step {
+    padding: 2rem;
+    position: relative;
+    border-top: 1px solid rgba(255,255,255,0.08);
+  }
+
+  .paso-num {
+    font-family: var(--font-head);
+    font-size: 0.8rem;
+    font-weight: 700;
+    letter-spacing: 0.2em;
+    color: var(--accent);
+    margin-bottom: 1rem;
+  }
+
+  .paso-titulo {
+    font-family: var(--font-head);
+    font-size: 1.3rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    margin-bottom: 0.75rem;
+  }
+
+  .paso-desc {
+    color: var(--text-muted);
+    font-size: 0.9rem;
+    line-height: 1.6;
+  }
+
+  /* TESTIMONIOS */
+  #testimonios { background: var(--gray); }
+
+  .trust-badges {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-bottom: 3rem;
+  }
+
+  .badge {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(255,255,255,0.08);
+    padding: 0.5rem 1rem;
+    font-family: var(--font-head);
+    font-size: 0.85rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+  }
+
+  .badge-icon { color: var(--accent); font-size: 1.1rem; }
+
+  .testimonios-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1px;
+    background: rgba(255,255,255,0.06);
+  }
+
+  .testimonio-card {
+    background: var(--gray);
+    padding: 2rem;
+  }
+
+  .stars {
+    color: var(--accent);
+    font-size: 1rem;
+    letter-spacing: 2px;
+    margin-bottom: 1rem;
+  }
+
+  .test-text {
+    font-size: 1rem;
+    line-height: 1.7;
+    color: #ccc;
+    margin-bottom: 1.5rem;
+    font-style: italic;
+  }
+
+  .test-author {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+  }
+
+  .test-avatar {
+    width: 38px; height: 38px;
+    background: rgba(232,255,0,0.15);
+    border: 1px solid rgba(232,255,0,0.3);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: var(--font-head);
+    font-weight: 800;
+    font-size: 0.85rem;
+    color: var(--accent);
+  }
+
+  .test-name {
+    font-family: var(--font-head);
+    font-size: 1rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+
+  .test-empresa {
+    font-size: 0.8rem;
+    color: var(--text-muted);
+  }
+
+  /* SOBRE NOSOTROS */
+  #nosotros { background: var(--black); }
+
+  .nosotros-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: center;
+  }
+
+  .nosotros-visual {
+    position: relative;
+  }
+
+  .nos-box {
+    background: var(--gray);
+    border: 1px solid rgba(255,255,255,0.06);
+    padding: 3rem;
+    position: relative;
+  }
+
+  .nos-box::after {
+    content: 'E.A.G';
+    position: absolute;
+    bottom: -1rem;
+    right: -1rem;
+    font-family: var(--font-head);
+    font-size: 6rem;
+    font-weight: 900;
+    color: rgba(232,255,0,0.04);
+    line-height: 1;
+    pointer-events: none;
+  }
+
+  .nos-values {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin-top: 1.5rem;
+  }
+
+  .nos-value {
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+    padding: 1rem;
+    border-left: 2px solid rgba(232,255,0,0.3);
+    background: rgba(255,255,255,0.02);
+  }
+
+  .nos-value-icon { color: var(--accent); font-size: 1.25rem; flex-shrink: 0; margin-top: 2px; }
+
+  .nos-value-text strong {
+    display: block;
+    font-family: var(--font-head);
+    font-size: 1rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    margin-bottom: 0.25rem;
+  }
+
+  .nos-value-text p { color: var(--text-muted); font-size: 0.9rem; }
+
+  .nosotros-content p {
+    color: var(--text-muted);
+    font-size: 1.05rem;
+    line-height: 1.8;
+    margin-bottom: 1.5rem;
+  }
+
+  .nosotros-content p strong { color: var(--white); }
+
+  /* CONTACTO */
+  #contacto { background: var(--gray); }
+
+  .contacto-grid {
+    display: grid;
+    grid-template-columns: 1fr 1.2fr;
+    gap: 4rem;
+    align-items: start;
+  }
+
+  .contacto-info h3 {
+    font-family: var(--font-head);
+    font-size: 1.4rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-bottom: 2rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+  }
+
+  .contacto-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .cont-icon {
+    width: 40px; height: 40px;
+    background: rgba(232,255,0,0.08);
+    border: 1px solid rgba(232,255,0,0.2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--accent);
+    font-size: 1.1rem;
+    flex-shrink: 0;
+  }
+
+  .cont-label {
+    font-family: var(--font-head);
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    margin-bottom: 0.2rem;
+  }
+
+  .cont-value { font-size: 0.95rem; color: var(--white); }
+
+  .form-group { margin-bottom: 1.25rem; }
+
+  .form-group label {
+    display: block;
+    font-family: var(--font-head);
+    font-size: 0.8rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    margin-bottom: 0.5rem;
+  }
+
+  .form-group input,
+  .form-group select,
+  .form-group textarea {
+    width: 100%;
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(255,255,255,0.1);
+    color: var(--white);
+    font-family: var(--font-body);
+    font-size: 0.95rem;
+    padding: 0.8rem 1rem;
+    outline: none;
+    transition: border-color 0.2s;
+    -webkit-appearance: none;
+  }
+
+  .form-group input:focus,
+  .form-group select:focus,
+  .form-group textarea:focus {
+    border-color: var(--accent);
+  }
+
+  .form-group select option { background: var(--gray); }
+
+  .form-group textarea { resize: vertical; min-height: 120px; }
+
+  .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+
+  .form-submit { width: 100%; margin-top: 0.5rem; font-size: 1.1rem; }
+
+  /* FOOTER */
+  footer {
+    background: #050505;
+    padding: 3rem 2rem 2rem;
+    border-top: 1px solid rgba(255,255,255,0.06);
+  }
+
+  .footer-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+  }
+
+  .footer-logo img { height: 48px; }
+
+  .footer-links {
+    display: flex;
+    gap: 2rem;
+    list-style: none;
+  }
+
+  .footer-links a {
+    color: var(--text-muted);
+    text-decoration: none;
+    font-family: var(--font-head);
+    font-size: 0.85rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    transition: color 0.2s;
+  }
+
+  .footer-links a:hover { color: var(--accent); }
+
+  .footer-copy {
+    font-size: 0.8rem;
+    color: var(--gray3);
+    text-align: center;
+    margin-top: 2rem;
+    padding-top: 2rem;
+    border-top: 1px solid rgba(255,255,255,0.04);
+    max-width: 1100px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  /* WHATSAPP FLOTANTE */
+  .wa-float {
+    position: fixed;
+    bottom: 6.5rem;
+    right: 2rem;
+    z-index: 998;
+    width: 52px; height: 52px;
+    background: #25d366;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    box-shadow: 0 4px 18px rgba(37,211,102,0.4);
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+
+  .wa-float:hover {
+    transform: scale(1.1);
+    box-shadow: 0 6px 24px rgba(37,211,102,0.55);
+  }
+
+  /* CHATBOT */
+  .chat-bubble {
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+    z-index: 999;
+  }
+
+  .chat-toggle {
+    width: 58px; height: 58px;
+    background: var(--accent);
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.6rem;
+    clip-path: polygon(8px 0%, 100% 0%, calc(100% - 8px) 100%, 0% 100%);
+    transition: all 0.2s;
+    box-shadow: 0 4px 20px rgba(232,255,0,0.35);
+  }
+
+  .chat-toggle:hover { transform: scale(1.08); }
+
+  .chat-dot {
+    position: absolute;
+    top: -3px; right: -3px;
+    width: 14px; height: 14px;
+    background: var(--accent2);
+    border-radius: 50%;
+    border: 2px solid var(--black);
+    animation: pulse2 2s infinite;
+  }
+
+  @keyframes pulse2 {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.3); }
+  }
+
+  .chat-window {
+    position: absolute;
+    bottom: 70px;
+    right: 0;
+    width: 360px;
+    background: #111;
+    border: 1px solid rgba(255,255,255,0.1);
+    display: none;
+    flex-direction: column;
+    max-height: 520px;
+    overflow: hidden;
+    animation: slideUp 0.3s ease;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.6);
+  }
+
+  .chat-window.open { display: flex; }
+
+  @keyframes slideUp {
+    from { opacity: 0; transform: translateY(12px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .chat-header {
+    background: var(--gray);
+    padding: 1rem 1.25rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid rgba(255,255,255,0.06);
+  }
+
+  .chat-header-info { display: flex; align-items: center; gap: 0.75rem; }
+
+  .chat-avatar {
+    width: 36px; height: 36px;
+    background: var(--accent);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: var(--font-head);
+    font-weight: 900;
+    font-size: 0.8rem;
+    color: var(--black);
+    clip-path: polygon(4px 0%, 100% 0%, calc(100% - 4px) 100%, 0% 100%);
+  }
+
+  .chat-name {
+    font-family: var(--font-head);
+    font-size: 1rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+
+  .chat-status {
+    font-size: 0.75rem;
+    color: #4ade80;
+    display: flex;
+    align-items: center;
+    gap: 0.3rem;
+  }
+
+  .chat-status::before {
+    content: '';
+    width: 6px; height: 6px;
+    background: #4ade80;
+    border-radius: 50%;
+  }
+
+  .chat-close-btn {
+    background: none;
+    border: none;
+    color: var(--text-muted);
+    cursor: pointer;
+    font-size: 1.2rem;
+    transition: color 0.2s;
+    line-height: 1;
+  }
+
+  .chat-close-btn:hover { color: var(--white); }
+
+  .chat-messages {
+    flex: 1;
+    overflow-y: auto;
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    scrollbar-width: thin;
+    scrollbar-color: var(--gray2) transparent;
+  }
+
+  .msg {
+    max-width: 85%;
+    padding: 0.7rem 1rem;
+    font-size: 0.9rem;
+    line-height: 1.5;
+    animation: msgIn 0.25s ease;
+  }
+
+  @keyframes msgIn {
+    from { opacity: 0; transform: translateY(6px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .msg-bot {
+    background: var(--gray2);
+    color: var(--white);
+    align-self: flex-start;
+    border-left: 2px solid var(--accent);
+  }
+
+  .msg-user {
+    background: var(--accent);
+    color: var(--black);
+    align-self: flex-end;
+    font-weight: 600;
+  }
+
+  .typing-indicator {
+    display: none;
+    align-items: center;
+    gap: 4px;
+    padding: 0.7rem 1rem;
+    background: var(--gray2);
+    border-left: 2px solid var(--accent);
+    width: fit-content;
+  }
+
+  .typing-indicator span {
+    width: 6px; height: 6px;
+    background: var(--text-muted);
+    border-radius: 50%;
+    animation: bounce 1.2s infinite;
+  }
+
+  .typing-indicator span:nth-child(2) { animation-delay: 0.2s; }
+  .typing-indicator span:nth-child(3) { animation-delay: 0.4s; }
+
+  @keyframes bounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-5px); }
+  }
+
+  .chat-quick-replies {
+    padding: 0 1rem 0.75rem;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+  }
+
+  .qr-btn {
+    background: transparent;
+    border: 1px solid rgba(232,255,0,0.25);
+    color: var(--accent);
+    font-family: var(--font-head);
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    padding: 0.35rem 0.75rem;
+    cursor: pointer;
+    transition: all 0.2s;
+    white-space: nowrap;
+  }
+
+  .qr-btn:hover { background: rgba(232,255,0,0.1); border-color: var(--accent); }
+
+  .chat-input-area {
+    display: flex;
+    border-top: 1px solid rgba(255,255,255,0.06);
+    background: var(--gray);
+  }
+
+  .chat-input {
+    flex: 1;
+    background: none;
+    border: none;
+    color: var(--white);
+    font-family: var(--font-body);
+    font-size: 0.9rem;
+    padding: 0.9rem 1rem;
+    outline: none;
+  }
+
+  .chat-input::placeholder { color: var(--gray3); }
+
+  .chat-send {
+    background: var(--accent);
+    border: none;
+    color: var(--black);
+    font-family: var(--font-head);
+    font-size: 0.8rem;
+    font-weight: 800;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    padding: 0 1.25rem;
+    cursor: pointer;
+    transition: background 0.2s;
+  }
+
+  .chat-send:hover { background: #fff; }
+
+  /* SCROLL REVEAL */
+  .reveal {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+  }
+
+  .reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* MOBILE */
+  @media (max-width: 768px) {
+    .nav-links { display: none; }
+    .hamburger { display: flex; }
+
+    .nosotros-grid,
+    .contacto-grid { grid-template-columns: 1fr; gap: 2rem; }
+
+    .form-row { grid-template-columns: 1fr; }
+
+    .hero h1 { font-size: clamp(2.8rem, 12vw, 5rem); }
+
+    .chat-window { width: 90vw; right: -10px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="navbar">
+  <a href="#" class="nav-logo">
+    <div class="nav-logo-main"><span class="eag">E.A.G</span> Estampería</div>
+    <div class="nav-logo-sub">Servicio Textil Premium</div>
+  </a>
+  <ul class="nav-links">
+    <li><a href="#servicios">Servicios</a></li>
+    <li><a href="#proceso">Proceso</a></li>
+    <li><a href="#testimonios">Clientes</a></li>
+    <li><a href="#nosotros">Nosotros</a></li>
+    <li><a href="#contacto" class="nav-cta">Pedir presupuesto</a></li>
+  </ul>
+  <div class="hamburger" onclick="toggleMenu()">
+    <span></span><span></span><span></span>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-badge">✦ Estampados que hablan por tu marca</div>
+  <h1>
+    <span class="outline-line">Tu marca,</span>
+    <span class="accent-line">estampada</span>
+    <span>en todo.</span>
+  </h1>
+  <p class="hero-sub">
+    Serigrafía &nbsp;·&nbsp; <span>DTF</span> &nbsp;·&nbsp; Sublimación
+  </p>
+  <div class="hero-ctas">
+    <a href="#contacto" class="btn-primary">Pedir presupuesto</a>
+    <a href="#servicios" class="btn-secondary">Ver servicios</a>
+  </div>
+  <div class="hero-stats">
+    <div class="hero-stat">
+      <div class="num">500+</div>
+      <div class="label">Marcas vestidas</div>
+    </div>
+    <div class="hero-stat">
+      <div class="num">3</div>
+      <div class="label">Técnicas de estampado</div>
+    </div>
+    <div class="hero-stat">
+      <div class="num">24h</div>
+      <div class="label">Tiempo de respuesta</div>
+    </div>
+    <div class="hero-stat">
+      <div class="num">10+</div>
+      <div class="label">Años de experiencia</div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICIOS -->
+<section id="servicios">
+  <div class="container">
+    <div class="servicios-intro reveal">
+      <div class="section-tag">// Lo que hacemos</div>
+      <h2 class="section-title">Tres técnicas.<br><span class="dim">Un solo proveedor.</span></h2>
+      <p>Cada técnica tiene su momento ideal. Te asesoramos para que tu pedido quede exactamente como lo imaginaste, con la calidad que tu marca se merece.</p>
+    </div>
+    <div class="servicios-grid">
+      <div class="servicio-card reveal">
+        <div class="serv-num">01</div>
+        <div class="serv-icon">
+          <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/><path d="M6 8h.01M6 12h.01"/><rect x="9" y="7" width="9" height="7" rx="1"/></svg>
+        </div>
+        <div class="serv-title">Serigrafía</div>
+        <p class="serv-desc">La técnica clásica para grandes volúmenes con colores vibrantes y duraderos. Ideal para uniformes corporativos, equipos deportivos y líneas de indumentaria.</p>
+        <div class="serv-tags">
+          <span class="tag">Volumen alto</span>
+          <span class="tag">Colores sólidos</span>
+          <span class="tag">Larga duración</span>
+          <span class="tag">Costo eficiente</span>
+        </div>
+      </div>
+      <div class="servicio-card reveal">
+        <div class="serv-num">02</div>
+        <div class="serv-icon">
+          <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19l7-7 3 3-7 7-3-3z"/><path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z"/><path d="M2 2l7.586 7.586"/><circle cx="11" cy="11" r="2"/></svg>
+        </div>
+        <div class="serv-title">DTF</div>
+        <p class="serv-desc">Transferencia directa al tejido. Perfecta para diseños complejos, degradados y full color sin límite de colores. Sin mínimo de piezas.</p>
+        <div class="serv-tags">
+          <span class="tag">Full color</span>
+          <span class="tag">Sin mínimo</span>
+          <span class="tag">Alta definición</span>
+          <span class="tag">Cualquier tela</span>
+        </div>
+      </div>
+      <div class="servicio-card reveal">
+        <div class="serv-num">03</div>
+        <div class="serv-icon">
+          <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a5 5 0 0 1 5 5c0 5-5 11-5 11S7 12 7 7a5 5 0 0 1 5-5z"/><circle cx="12" cy="7" r="2"/><path d="M3 20c2-2 4-3 9-3s7 1 9 3"/></svg>
+        </div>
+        <div class="serv-title">Sublimación</div>
+        <p class="serv-desc">Para telas 100% poliéster y productos rígidos. Colores que se fusionan con la fibra para un acabado fotográfico que no se despega ni destiñe.</p>
+        <div class="serv-tags">
+          <span class="tag">Fotográfico</span>
+          <span class="tag">Poliéster</span>
+          <span class="tag">Indeleble</span>
+          <span class="tag">Promocionales</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROCESO -->
+<section id="proceso">
+  <div class="container">
+    <div class="reveal">
+      <div class="section-tag">// Cómo trabajamos</div>
+      <h2 class="section-title">Del diseño<br><span class="dim">a tu puerta.</span></h2>
+    </div>
+    <div class="proceso-steps">
+      <div class="proceso-step reveal">
+        <div class="paso-num">PASO 01</div>
+        <div class="paso-titulo">Consulta & diseño</div>
+        <p class="paso-desc">Nos compartís tu arte o diseño. Si no tenés, te ayudamos a prepararlo para imprenta. Coordinamos técnica, colores y materiales.</p>
+      </div>
+      <div class="proceso-step reveal">
+        <div class="paso-num">PASO 02</div>
+        <div class="paso-titulo">Presupuesto</div>
+        <p class="paso-desc">En 24 horas recibís un presupuesto detallado según técnica, cantidad y tipo de prenda. Sin costos ocultos.</p>
+      </div>
+      <div class="proceso-step reveal">
+        <div class="paso-num">PASO 03</div>
+        <div class="paso-titulo">Producción</div>
+        <p class="paso-desc">Aprobado el pedido, comenzamos la producción con control de calidad en cada pieza. Te mantenemos informado del avance.</p>
+      </div>
+      <div class="proceso-step reveal">
+        <div class="paso-num">PASO 04</div>
+        <div class="paso-titulo">Entrega</div>
+        <p class="paso-desc">Retiro en taller o coordinamos envío a todo el país. Tu pedido llega empacado y listo para usar o distribuir.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIOS -->
+<section id="testimonios">
+  <div class="container">
+    <div class="reveal">
+      <div class="section-tag">// Lo que dicen</div>
+      <h2 class="section-title">Marcas que<br><span class="dim">confían en E.A.G</span></h2>
+    </div>
+    <div class="trust-badges reveal">
+      <div class="badge">
+        <span class="badge-icon">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+        </span> 5 estrellas en Google
+      </div>
+      <div class="badge">
+        <span class="badge-icon">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+        </span> +500 marcas atendidas
+      </div>
+      <div class="badge">
+        <span class="badge-icon">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+        </span> Entrega en tiempo y forma
+      </div>
+      <div class="badge">
+        <span class="badge-icon">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        </span> Garantía de calidad
+      </div>
+    </div>
+    <div class="testimonios-grid">
+      <div class="testimonio-card reveal">
+        <div class="stars">★★★★★</div>
+        <p class="test-text">"Encargamos 200 remeras para el equipo y quedaron perfectas. Colores exactos, excelente calidad y entregaron en el plazo prometido. Ya les hicimos tres pedidos más."</p>
+        <div class="test-author">
+          <div class="test-avatar">ML</div>
+          <div>
+            <div class="test-name">Marcos L.</div>
+            <div class="test-empresa">Indumentaria deportiva</div>
+          </div>
+        </div>
+      </div>
+      <div class="testimonio-card reveal">
+        <div class="stars">★★★★★</div>
+        <p class="test-text">"Usamos DTF para nuestra línea de streetwear y el resultado es increíble. Los degradados quedan perfectos y la durabilidad después del lavado es impresionante."</p>
+        <div class="test-author">
+          <div class="test-avatar">SC</div>
+          <div>
+            <div class="test-name">Sofía C.</div>
+            <div class="test-empresa">Marca de ropa urbana</div>
+          </div>
+        </div>
+      </div>
+      <div class="testimonio-card reveal">
+        <div class="stars">★★★★★</div>
+        <p class="test-text">"Para nuestros uniformes corporativos elegimos E.A.G y no nos arrepentimos. Profesionales, puntuales y el asesoramiento fue clave para elegir la técnica correcta."</p>
+        <div class="test-author">
+          <div class="test-avatar">RP</div>
+          <div>
+            <div class="test-name">Roberto P.</div>
+            <div class="test-empresa">Empresa de logística</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- NOSOTROS -->
+<section id="nosotros">
+  <div class="container">
+    <div class="nosotros-grid">
+      <div class="nosotros-content reveal">
+        <div class="section-tag">// Quiénes somos</div>
+        <h2 class="section-title">Servicio textil<br><span class="dim">con identidad.</span></h2>
+        <p>En <strong>Estampería E.A.G</strong> sabemos que cada marca tiene su historia. Por eso no solo estampamos telas: convertimos tu identidad visual en algo tangible que la gente puede vestir.</p>
+        <p>Somos un equipo con <strong>más de 10 años de experiencia</strong> en el rubro textil, especializados en serigrafía, DTF y sublimación para marcas, empresas, equipos y emprendedores que buscan calidad profesional sin complicaciones.</p>
+        <p>Trabajamos con las <strong>mejores tintas y materiales del mercado</strong>, combinando tecnología actualizada con el oficio artesanal que distingue un buen estampado de uno memorable.</p>
+        <a href="#contacto" class="btn-primary" style="margin-top: 1rem; display: inline-block;">Trabajemos juntos</a>
+      </div>
+      <div class="nosotros-visual reveal">
+        <div class="nos-box">
+          <div class="section-tag" style="margin-bottom: 1rem;">Nuestros valores</div>
+          <div class="nos-values">
+            <div class="nos-value">
+              <div class="nos-value-icon">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+              </div>
+              <div class="nos-value-text">
+                <strong>Calidad sin excusas</strong>
+                <p>Cada pieza pasa por control de calidad. Si no nos convence, lo rehacemos.</p>
+              </div>
+            </div>
+            <div class="nos-value">
+              <div class="nos-value-icon">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+              </div>
+              <div class="nos-value-text">
+                <strong>Asesoramiento real</strong>
+                <p>Te decimos qué técnica conviene para tu proyecto, no la más cara.</p>
+              </div>
+            </div>
+            <div class="nos-value">
+              <div class="nos-value-icon">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+              </div>
+              <div class="nos-value-text">
+                <strong>Cumplimiento de plazos</strong>
+                <p>Sabemos que tu negocio no puede esperar. Trabajamos con fechas reales.</p>
+              </div>
+            </div>
+            <div class="nos-value">
+              <div class="nos-value-icon">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+              </div>
+              <div class="nos-value-text">
+                <strong>Relación directa</strong>
+                <p>Trato personalizado desde el primer presupuesto hasta la entrega.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACTO -->
+<section id="contacto">
+  <div class="container">
+    <div class="reveal" style="margin-bottom: 3rem;">
+      <div class="section-tag">// Contacto</div>
+      <h2 class="section-title">Pedí tu<br><span class="dim">presupuesto.</span></h2>
+    </div>
+    <div class="contacto-grid">
+      <div class="contacto-info reveal">
+        <h3>Hablemos de tu proyecto</h3>
+        <div class="contacto-item">
+          <div class="cont-icon">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
+          </div>
+          <div>
+            <div class="cont-label">WhatsApp</div>
+            <div class="cont-value">+54 9 223 619-4988</div>
+          </div>
+        </div>
+        <div class="contacto-item">
+          <div class="cont-icon">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+          </div>
+          <div>
+            <div class="cont-label">Email</div>
+            <div class="cont-value">estamperiaeag@gmail.com</div>
+          </div>
+        </div>
+        <div class="contacto-item">
+          <div class="cont-icon">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+          </div>
+          <div>
+            <div class="cont-label">Ubicación</div>
+            <div class="cont-value">Mar del Plata, Buenos Aires</div>
+          </div>
+        </div>
+        <div class="contacto-item">
+          <div class="cont-icon">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+          </div>
+          <div>
+            <div class="cont-label">Horarios</div>
+            <div class="cont-value">Lun–Vie 9:00–18:00 hs</div>
+          </div>
+        </div>
+        <div style="margin-top: 2rem; padding: 1.5rem; background: rgba(232,255,0,0.05); border: 1px solid rgba(232,255,0,0.15);">
+          <div style="font-family: var(--font-head); font-size: 0.8rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent); margin-bottom: 0.5rem;">Respuesta en menos de 24hs</div>
+          <p style="color: var(--text-muted); font-size: 0.9rem;">Envianos tu diseño o idea y te cotizamos sin cargo ni compromiso.</p>
+        </div>
+      </div>
+      <div class="reveal">
+        <form onsubmit="handleForm(event)">
+          <div class="form-row">
+            <div class="form-group">
+              <label>Nombre</label>
+              <input type="text" placeholder="Tu nombre" required>
+            </div>
+            <div class="form-group">
+              <label>Empresa / Marca</label>
+              <input type="text" placeholder="Nombre de tu empresa">
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label>Email</label>
+              <input type="email" placeholder="tu@email.com" required>
+            </div>
+            <div class="form-group">
+              <label>Teléfono / WhatsApp</label>
+              <input type="tel" placeholder="+54 9 ...">
+            </div>
+          </div>
+          <div class="form-group">
+            <label>Técnica de interés</label>
+            <select>
+              <option value="">No lo sé todavía</option>
+              <option>Serigrafía</option>
+              <option>DTF</option>
+              <option>Sublimación</option>
+              <option>Varias técnicas</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label>Cantidad aproximada de prendas</label>
+            <select>
+              <option>1–50 prendas</option>
+              <option>51–200 prendas</option>
+              <option>201–500 prendas</option>
+              <option>+500 prendas</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label>Contanos tu proyecto</label>
+            <textarea placeholder="Describí qué necesitás: tipo de prenda, diseño, colores, fechas estimadas..."></textarea>
+          </div>
+          <button type="submit" class="btn-primary form-submit">Enviar consulta →</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <a href="#" class="nav-logo" style="text-decoration:none;">
+      <div class="nav-logo-main"><span class="eag">E.A.G</span> Estampería</div>
+      <div class="nav-logo-sub">Servicio Textil Premium</div>
+    </a>
+    <ul class="footer-links">
+      <li><a href="#servicios">Servicios</a></li>
+      <li><a href="#proceso">Proceso</a></li>
+      <li><a href="#nosotros">Nosotros</a></li>
+      <li><a href="#contacto">Contacto</a></li>
+    </ul>
+  </div>
+  <p class="footer-copy">© 2025 Estampería E.A.G — Servicio Textil Premium · Mar del Plata, Buenos Aires · Serigrafía · DTF · Sublimación</p>
+</footer>
+
+<!-- WHATSAPP FLOTANTE -->
+<a href="https://wa.me/5492236194988?text=Hola%2C%20quiero%20consultar%20sobre%20estampados" target="_blank" class="wa-float" aria-label="Contactar por WhatsApp">
+  <svg width="26" height="26" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z"/></svg>
+</a>
+
+<!-- CHATBOT -->
+<div class="chat-bubble">
+  <div class="chat-window" id="chatWindow">
+    <div class="chat-header">
+      <div class="chat-header-info">
+        <div class="chat-avatar">EAG</div>
+        <div>
+          <div class="chat-name">Asistente E.A.G</div>
+          <div class="chat-status">En línea</div>
+        </div>
+      </div>
+      <button class="chat-close-btn" onclick="toggleChat()">✕</button>
+    </div>
+    <div class="chat-messages" id="chatMessages">
+      <div class="msg msg-bot">¡Hola! 👋 Soy el asistente de <strong>Estampería E.A.G</strong>. ¿En qué puedo ayudarte hoy?</div>
+    </div>
+    <div class="typing-indicator" id="typingIndicator">
+      <span></span><span></span><span></span>
+    </div>
+    <div class="chat-quick-replies" id="quickReplies">
+      <button class="qr-btn" onclick="quickReply('¿Qué técnicas ofrecen?')">Técnicas</button>
+      <button class="qr-btn" onclick="quickReply('¿Cómo pido un presupuesto?')">Presupuesto</button>
+      <button class="qr-btn" onclick="quickReply('¿Cuáles son los plazos de entrega?')">Plazos</button>
+      <button class="qr-btn" onclick="quickReply('¿Tienen mínimo de prendas?')">Mínimos</button>
+      <button class="qr-btn" onclick="quickReply('¿Dónde están ubicados?')">Ubicación</button>
+    </div>
+    <div class="chat-input-area">
+      <input class="chat-input" id="chatInput" placeholder="Escribí tu consulta..." onkeydown="handleKey(event)">
+      <button class="chat-send" onclick="sendMessage()">Enviar</button>
+    </div>
+  </div>
+  <button class="chat-toggle" onclick="toggleChat()" id="chatToggleBtn" aria-label="Abrir chat">
+    <svg id="chatIconOpen" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#0a0a0a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+    <svg id="chatIconClose" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#0a0a0a" stroke-width="2.2" stroke-linecap="round" style="display:none"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+    <div class="chat-dot"></div>
+  </button>
+</div>
+
+<script>
+  // NAV
+  window.addEventListener('scroll', () => {
+    const nav = document.getElementById('navbar');
+    if (window.scrollY > 50) {
+      nav.style.borderBottomColor = 'rgba(232,255,0,0.1)';
+    } else {
+      nav.style.borderBottomColor = 'rgba(255,255,255,0.06)';
+    }
+  });
+
+  function toggleMenu() {
+    const links = document.querySelector('.nav-links');
+    links.style.display = links.style.display === 'flex' ? 'none' : 'flex';
+    links.style.flexDirection = 'column';
+    links.style.position = 'absolute';
+    links.style.top = '70px';
+    links.style.left = '0'; links.style.right = '0';
+    links.style.background = '#0a0a0a';
+    links.style.padding = '1rem 2rem';
+    links.style.borderBottom = '1px solid rgba(255,255,255,0.08)';
+  }
+
+  // SCROLL REVEAL
+  const revealEls = document.querySelectorAll('.reveal');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.classList.add('visible');
+        observer.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+  revealEls.forEach(el => observer.observe(el));
+
+  // FORM
+  function handleForm(e) {
+    e.preventDefault();
+    const f = e.target;
+    const nombre    = f.querySelector('input[placeholder="Tu nombre"]').value.trim();
+    const empresa   = f.querySelector('input[placeholder="Nombre de tu empresa"]').value.trim();
+    const email     = f.querySelector('input[type="email"]').value.trim();
+    const telefono  = f.querySelector('input[type="tel"]').value.trim();
+    const tecnica   = f.querySelectorAll('select')[0].value;
+    const cantidad  = f.querySelectorAll('select')[1].value;
+    const mensaje   = f.querySelector('textarea').value.trim();
+
+    const texto = [
+      '👋 *Nueva consulta desde el sitio web*',
+      '',
+      `👤 *Nombre:* ${nombre}`,
+      empresa   ? `🏢 *Empresa:* ${empresa}`   : '',
+      email     ? `📧 *Email:* ${email}`        : '',
+      telefono  ? `📱 *Teléfono:* ${telefono}`  : '',
+      tecnica   ? `🖨️ *Técnica:* ${tecnica}`    : '',
+      `📦 *Cantidad:* ${cantidad}`,
+      mensaje   ? `\n💬 *Proyecto:*\n${mensaje}` : '',
+    ].filter(Boolean).join('\n');
+
+    const numero = '5492236194988';
+    const url = `https://wa.me/${numero}?text=${encodeURIComponent(texto)}`;
+
+    const btn = f.querySelector('.form-submit');
+    btn.textContent = '✓ Abriendo WhatsApp...';
+    btn.style.background = '#4ade80';
+    btn.style.color = '#000';
+
+    window.open(url, '_blank');
+
+    setTimeout(() => {
+      btn.textContent = 'Enviar consulta →';
+      btn.style.background = '';
+      btn.style.color = '';
+      f.reset();
+    }, 3000);
+  }
+
+  // CHATBOT
+  let chatOpen = false;
+
+  function toggleChat() {
+    chatOpen = !chatOpen;
+    const win = document.getElementById('chatWindow');
+    win.classList.toggle('open', chatOpen);
+    document.getElementById('chatIconOpen').style.display = chatOpen ? 'none' : 'block';
+    document.getElementById('chatIconClose').style.display = chatOpen ? 'block' : 'none';
+    if (chatOpen) {
+      document.getElementById('chatInput').focus();
+      document.querySelector('.chat-dot').style.display = 'none';
+    }
+  }
+
+  const botResponses = {
+    'técnicas': 'Ofrecemos tres técnicas:\n\n🖨️ **Serigrafía** — ideal para volúmenes altos con colores sólidos.\n🎨 **DTF** — full color, sin mínimo de piezas, alta definición.\n✨ **Sublimación** — para poliéster y productos rígidos, colores que no se despegan.\n\n¿Querés saber cuál conviene para tu proyecto?',
+    'presupuesto': 'Para pedir un presupuesto podés:\n\n1️⃣ Completar el formulario de contacto en la web.\n2️⃣ Escribirnos directo por WhatsApp al +54 9 223 619-4988\n3️⃣ Enviarnos un mail a estamperiaeag@gmail.com\n\nRespondemos en menos de 24 horas. ¡Sin cargo ni compromiso!',
+    'plazo': 'Los plazos dependen de la técnica y la cantidad:\n\n• DTF pequeñas tiradas: 3–5 días hábiles\n• Serigrafía: 7–10 días hábiles\n• Sublimación: 5–7 días hábiles\n\nPara pedidos urgentes consultanos, en muchos casos podemos ajustar los tiempos.',
+    'mínimo': 'Con **DTF no hay mínimo** — podés pedir desde 1 sola pieza.\n\nPara serigrafía el mínimo suele ser 12 prendas por color/diseño para que sea rentable.\n\nSublimación: depende del producto, generalmente desde 1 unidad.',
+    'precio': 'Los precios varían según técnica, cantidad y tipo de prenda. Cuanto mayor el volumen, menor el costo por pieza.\n\nPedinos un presupuesto sin compromiso enviando tu diseño y la cantidad estimada. Te respondemos en 24hs.',
+    'ubicación': 'Estamos ubicados en **Mar del Plata, Buenos Aires**.\n\n📍 Podés venir a retirar tu pedido o coordinamos envío a todo el país.\n\n🕐 Atención: Lunes a Viernes de 9:00 a 18:00 hs.',
+    'horario': 'Atendemos de **lunes a viernes de 9:00 a 18:00 hs**.\n\nFuera de horario podés dejarnos tu consulta aquí o por WhatsApp y te respondemos al inicio del siguiente día hábil.',
+    'default': '¡Gracias por tu consulta! Te recomiendo completar el formulario de contacto en la sección de abajo o escribirnos directamente por WhatsApp para que uno de nuestros asesores te responda personalmente. ¿Hay algo más en lo que pueda ayudarte?'
+  };
+
+  function getResponse(msg) {
+    const m = msg.toLowerCase();
+    if (m.includes('técnica') || m.includes('serigrafia') || m.includes('dtf') || m.includes('sublimac')) return botResponses['técnicas'];
+    if (m.includes('presupuesto') || m.includes('cotiza') || m.includes('precio') && m.includes('como')) return botResponses['presupuesto'];
+    if (m.includes('plazo') || m.includes('tiempo') || m.includes('cuándo') || m.includes('entrega')) return botResponses['plazo'];
+    if (m.includes('mínimo') || m.includes('minimo') || m.includes('cantidad')) return botResponses['mínimo'];
+    if (m.includes('precio') || m.includes('costo') || m.includes('cuánto') || m.includes('cuanto')) return botResponses['precio'];
+    if (m.includes('ubicac') || m.includes('donde') || m.includes('dónde') || m.includes('dirección')) return botResponses['ubicación'];
+    if (m.includes('horario') || m.includes('atención') || m.includes('atienden')) return botResponses['horario'];
+    return botResponses['default'];
+  }
+
+  function addMessage(text, isUser) {
+    const msgs = document.getElementById('chatMessages');
+    const div = document.createElement('div');
+    div.className = 'msg ' + (isUser ? 'msg-user' : 'msg-bot');
+    div.innerHTML = text.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>').replace(/\n/g, '<br>');
+    msgs.appendChild(div);
+    msgs.scrollTop = msgs.scrollHeight;
+  }
+
+  function showTyping() {
+    const t = document.getElementById('typingIndicator');
+    t.style.display = 'flex';
+    document.getElementById('chatMessages').scrollTop = 99999;
+  }
+
+  function hideTyping() {
+    document.getElementById('typingIndicator').style.display = 'none';
+  }
+
+  function quickReply(text) {
+    document.getElementById('quickReplies').style.display = 'none';
+    addMessage(text, true);
+    showTyping();
+    setTimeout(() => {
+      hideTyping();
+      addMessage(getResponse(text), false);
+    }, 900 + Math.random() * 600);
+  }
+
+  function sendMessage() {
+    const input = document.getElementById('chatInput');
+    const text = input.value.trim();
+    if (!text) return;
+    document.getElementById('quickReplies').style.display = 'none';
+    input.value = '';
+    addMessage(text, true);
+    showTyping();
+    setTimeout(() => {
+      hideTyping();
+      addMessage(getResponse(text), false);
+    }, 800 + Math.random() * 800);
+  }
+
+  function handleKey(e) {
+    if (e.key === 'Enter') sendMessage();
+  }
+</script>
+</body>
+</html>
