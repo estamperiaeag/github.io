@@ -759,6 +759,28 @@
     margin-right: auto;
   }
 
+  /* INSTAGRAM FLOTANTE */
+  .ig-float {
+    position: fixed;
+    bottom: 10.5rem;
+    right: 2rem;
+    z-index: 998;
+    width: 52px; height: 52px;
+    background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%);
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    box-shadow: 0 4px 18px rgba(214,36,159,0.4);
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+
+  .ig-float:hover {
+    transform: scale(1.1);
+    box-shadow: 0 6px 24px rgba(214,36,159,0.55);
+  }
+
   /* WHATSAPP FLOTANTE */
   .wa-float {
     position: fixed;
@@ -1089,7 +1111,7 @@
   </div>
   <div class="hero-stats">
     <div class="hero-stat">
-      <div class="num">500+</div>
+      <div class="num">200+</div>
       <div class="label">Marcas vestidas</div>
     </div>
     <div class="hero-stat">
@@ -1136,10 +1158,10 @@
           <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19l7-7 3 3-7 7-3-3z"/><path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z"/><path d="M2 2l7.586 7.586"/><circle cx="11" cy="11" r="2"/></svg>
         </div>
         <div class="serv-title">DTF</div>
-        <p class="serv-desc">Transferencia directa al tejido. Perfecta para diseños complejos, degradados y full color sin límite de colores. Sin mínimo de piezas.</p>
+        <p class="serv-desc">Transferencia directa al tejido. Perfecta para diseños complejos, degradados y full color sin límite de colores. Mínimo 10 piezas.</p>
         <div class="serv-tags">
           <span class="tag">Full color</span>
-          <span class="tag">Sin mínimo</span>
+          <span class="tag">Desde 10 piezas</span>
           <span class="tag">Alta definición</span>
           <span class="tag">Cualquier tela</span>
         </div>
@@ -1210,7 +1232,7 @@
       <div class="badge">
         <span class="badge-icon">
           <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
-        </span> +500 marcas atendidas
+        </span> +200 marcas atendidas
       </div>
       <div class="badge">
         <span class="badge-icon">
@@ -1226,7 +1248,7 @@
     <div class="testimonios-grid">
       <div class="testimonio-card reveal">
         <div class="stars">★★★★★</div>
-        <p class="test-text">"Encargamos 200 remeras para el equipo y quedaron perfectas. Colores exactos, excelente calidad y entregaron en el plazo prometido. Ya les hicimos tres pedidos más."</p>
+        <p class="test-text">"Encargamos 80 remeras para el equipo y quedaron perfectas. Colores exactos, excelente calidad y entregaron en el plazo prometido. Ya les hicimos tres pedidos más."</p>
         <div class="test-author">
           <div class="test-avatar">ML</div>
           <div>
@@ -1435,10 +1457,21 @@
       <li><a href="#proceso">Proceso</a></li>
       <li><a href="#nosotros">Nosotros</a></li>
       <li><a href="#contacto">Contacto</a></li>
+      <li>
+        <a href="https://www.instagram.com/estamperia.eag" target="_blank" style="display:inline-flex;align-items:center;gap:0.4rem;">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+          @estamperia.eag
+        </a>
+      </li>
     </ul>
   </div>
   <p class="footer-copy">© 2025 Estampería E.A.G — Servicio Textil Premium · Mar del Plata, Buenos Aires · Serigrafía · DTF · Sublimación</p>
 </footer>
+
+<!-- INSTAGRAM FLOTANTE -->
+<a href="https://www.instagram.com/estamperia.eag" target="_blank" class="ig-float" aria-label="Ver Instagram">
+  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+</a>
 
 <!-- WHATSAPP FLOTANTE -->
 <a href="https://wa.me/5492236194988?text=Hola%2C%20quiero%20consultar%20sobre%20estampados" target="_blank" class="wa-float" aria-label="Contactar por WhatsApp">
@@ -1579,7 +1612,7 @@
     'técnicas': 'Ofrecemos tres técnicas:\n\n🖨️ **Serigrafía** — ideal para volúmenes altos con colores sólidos.\n🎨 **DTF** — full color, sin mínimo de piezas, alta definición.\n✨ **Sublimación** — para poliéster y productos rígidos, colores que no se despegan.\n\n¿Querés saber cuál conviene para tu proyecto?',
     'presupuesto': 'Para pedir un presupuesto podés:\n\n1️⃣ Completar el formulario de contacto en la web.\n2️⃣ Escribirnos directo por WhatsApp al +54 9 223 619-4988\n3️⃣ Enviarnos un mail a estamperiaeag@gmail.com\n\nRespondemos en menos de 24 horas. ¡Sin cargo ni compromiso!',
     'plazo': 'Los plazos dependen de la técnica y la cantidad:\n\n• DTF pequeñas tiradas: 3–5 días hábiles\n• Serigrafía: 7–10 días hábiles\n• Sublimación: 5–7 días hábiles\n\nPara pedidos urgentes consultanos, en muchos casos podemos ajustar los tiempos.',
-    'mínimo': 'Con **DTF no hay mínimo** — podés pedir desde 1 sola pieza.\n\nPara serigrafía el mínimo suele ser 12 prendas por color/diseño para que sea rentable.\n\nSublimación: depende del producto, generalmente desde 1 unidad.',
+    'mínimo': 'Los mínimos por técnica son:\n\n• **DTF:** 10 piezas por pedido.\n• **Serigrafía:** 12 prendas por color/diseño.\n• **Sublimación:** depende del producto, consultanos.\n\nPara pedidos más grandes el precio por pieza baja considerablemente.',
     'precio': 'Los precios varían según técnica, cantidad y tipo de prenda. Cuanto mayor el volumen, menor el costo por pieza.\n\nPedinos un presupuesto sin compromiso enviando tu diseño y la cantidad estimada. Te respondemos en 24hs.',
     'ubicación': 'Estamos ubicados en **Mar del Plata, Buenos Aires**.\n\n📍 Podés venir a retirar tu pedido o coordinamos envío a todo el país.\n\n🕐 Atención: Lunes a Viernes de 9:00 a 18:00 hs.',
     'horario': 'Atendemos de **lunes a viernes de 9:00 a 18:00 hs**.\n\nFuera de horario podés dejarnos tu consulta aquí o por WhatsApp y te respondemos al inicio del siguiente día hábil.',
